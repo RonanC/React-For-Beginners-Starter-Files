@@ -17,7 +17,7 @@ class App extends React.Component {
   };
 
   static propTypes = {
-    match: PropTypes.object
+    match: PropTypes.object.isRequired
   };
 
   // Life-cycle events
@@ -26,8 +26,8 @@ class App extends React.Component {
     const localStorageRef = localStorage.getItem(
       this.props.match.params.storeId
     );
-    console.log(localStorageRef);
-    console.log(JSON.parse(localStorageRef));
+    // console.log(localStorageRef);
+    // console.log(JSON.parse(localStorageRef));
 
     if (localStorageRef) {
       this.setState({
@@ -165,6 +165,7 @@ class App extends React.Component {
           deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
+          storeId={this.props.match.params.storeId}
         />
       </div>
     );
